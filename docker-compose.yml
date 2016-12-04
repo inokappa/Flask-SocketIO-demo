@@ -1,0 +1,14 @@
+socket:
+  restart: always
+  build: ./demo
+  ports:
+    - "5001:5001"
+  command: app.py
+
+nginx:
+  restart: always
+  build: ./nginx
+  ports:
+    - "19190:19190"
+  links:
+    - socket
